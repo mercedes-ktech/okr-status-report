@@ -50,23 +50,19 @@ public class OKRReader {
         Scanner scanner = new Scanner(System.in);
 
         try (Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\mercedes.tarrio\\Downloads\\OKR.csv"))) {
-            // columns name
             String[] columns = {"objective", "keyResult1", "keyResult2", "keyResult3", "keyResult4", "keyResult5"};
 
-            // create a mapping strategy
             ColumnPositionMappingStrategy strategy = new ColumnPositionMappingStrategy();
             strategy.setType(CSVEntry.class);
             strategy.setColumnMapping(columns);
 
-            // create csv bean reader
             CsvToBean csvToBean = new CsvToBeanBuilder(reader)
                     .withMappingStrategy(strategy)
                     .withSkipLines(1)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
 
-            // iterate through okr
-            for (CSVEntry okr : (Iterable<CSVEntry>) csvToBean) { // transform here
+            for (CSVEntry okr : (Iterable<CSVEntry>) csvToBean) {
                 Collection<KeyResult> newKeyResults = new ArrayList<>();
                 RandomProgressGenerator randomProgressGenerator = new RandomProgressGenerator();
 
