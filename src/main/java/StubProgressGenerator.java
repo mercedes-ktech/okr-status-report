@@ -1,5 +1,4 @@
 public class StubProgressGenerator implements ProgressGenerator {
-
     @Override
     public int completionPercentageInGoodRange() {
         return 50;

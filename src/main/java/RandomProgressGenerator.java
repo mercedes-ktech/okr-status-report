@@ -1,5 +1,4 @@
 public class RandomProgressGenerator implements ProgressGenerator {
-
     @Override
     public int completionPercentageInGoodRange() {
         int goodRange = (100 - 40);

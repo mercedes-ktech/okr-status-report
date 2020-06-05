@@ -45,7 +45,7 @@ public class OKR {
         return canCalculate;
     }
 
-    private int calculateCompletionUsingKRs() { //when KR do have a %
+    private int calculateCompletionUsingKRs() {
         int sum = 0;
 
         for (KeyResult keyResult : getKeyResults()) {
